@@ -125,7 +125,7 @@ const Wells = () => {
       setDeleteDialog({ open: false, wellId: null, wellName: "" });
     } catch (err: unknown) {
       console.error("Erro ao deletar poço:", err);
-      toast.error("Erro ao deletar poço: " + (err.message || "Erro desconhecido"));
+      toast.error("Erro ao deletar poço: " + (err instanceof Error ? err.message : 'Erro ao carregar projetos'));
     } finally {
       setIsDeleting(false);
     }
