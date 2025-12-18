@@ -18,7 +18,6 @@ const Wells = () => {
   const [wells, setWells] = useState<WellWithReservoirName[]>([]);
   const [reservoirs, setReservoirs] = useState<ReservoirResponse[]>([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const [dialogState, setDialogState] = useState({
     open: false,
     mode: "create" as "create" | "edit",
@@ -31,16 +30,6 @@ const Wells = () => {
   });
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const fetchReservoirs = async () => {
-    try {
-      const reservoirsData = await ReservoirService.getAll();
-      setReservoirs(reservoirsData);
-    } catch (err: any) {
-      console.error("Erro ao buscar reservatórios:", err);
-      toast.error("Erro ao carregar reservatórios");
-    }
-  };
-
   const getReservoirNameById = (
     reservoirId: number,
     reservoirsList: ReservoirResponse[]
@@ -52,7 +41,6 @@ const Wells = () => {
   const fetchWells = async () => {
     try {
       setLoading(true);
-      setError(null);
 
       const [wellsData, reservoirsData] = await Promise.all([
         WellTargetService.getAll(),
@@ -70,7 +58,6 @@ const Wells = () => {
 
       setWells(wellsWithReservoirNames);
     } catch (err: any) {
-      setError(err.message || "Erro ao carregar poços");
       console.error("Erro ao buscar poços:", err);
       setWells([]);
     } finally {
@@ -136,7 +123,7 @@ const Wells = () => {
       await fetchWells();
 
       setDeleteDialog({ open: false, wellId: null, wellName: "" });
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Erro ao deletar poço:", err);
       toast.error("Erro ao deletar poço: " + (err.message || "Erro desconhecido"));
     } finally {
@@ -175,7 +162,6 @@ const Wells = () => {
         <WellsTable
           wells={wells}
           loading={loading}
-          error={error}
           onEditWell={handleEditWell}
           onDeleteWell={handleDeleteWell}
         />

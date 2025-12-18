@@ -35,7 +35,7 @@ const Reservoirs = () => {
       const projectsData = await ProjectsService.getAll();
       setProjects(projectsData);
       return projectsData;
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Erro ao buscar projetos:", err);
       return [];
     }
@@ -63,8 +63,8 @@ const Reservoirs = () => {
       );
 
       setReservoirs(reservoirsWithProjectNames);
-    } catch (err: any) {
-      setError(err.message || "Erro ao carregar reservatórios");
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Erro ao carregar reservatórios");
       console.error("Erro ao buscar reservatórios:", err);
     } finally {
       setLoading(false);
@@ -122,7 +122,6 @@ const Reservoirs = () => {
   };
 
   const confirmDeleteReservoir = async () => {
-    debugger
     if (!deleteDialog.reservoirId) return;
 
     try {
@@ -134,9 +133,9 @@ const Reservoirs = () => {
       await fetchReservoirs();
 
       setDeleteDialog({ open: false, reservoirId: null, reservoirName: "" });
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Erro ao deletar reservatório:", err);
-      toast.error("Erro ao deletar reservatório: " + (err.message || "Erro desconhecido"));
+      toast.error("Erro ao deletar reservatório: " + (err instanceof Error ? err.message : "Erro desconhecido"));
     } finally {
       setIsDeleting(false);
     }

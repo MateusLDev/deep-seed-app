@@ -35,7 +35,7 @@ const Projects = () => {
       const strategies = await CCUSStrategiesService.getAll()
       setCcusStrategies(strategies)
       return strategies
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Erro ao buscar estratégias CCUS:', err)
       return []
     }
@@ -61,8 +61,8 @@ const Projects = () => {
       }))
       
       setProjects(projectsWithStrategyNames)
-    } catch (err: any) {
-      setError(err.message || 'Erro ao carregar projetos')
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Erro ao carregar projetos')
       console.error('Erro ao buscar projetos:', err)
     } finally {
       setLoading(false)
@@ -131,7 +131,7 @@ const Projects = () => {
       
       setDeleteDialog({ open: false, projectId: null, projectName: '' })
       
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Erro ao deletar projeto:', err)
       toast.error('Erro ao deletar projeto')
     } finally {

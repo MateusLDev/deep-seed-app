@@ -18,15 +18,13 @@ interface WellWithReservoirName extends WellTargetResponse {
 interface WellsTableProps {
   wells: WellWithReservoirName[]
   loading: boolean
-  error: string | null
   onEditWell: (wellId: number) => void
   onDeleteWell: (wellId: number) => void
 }
 
 export const WellsTable = ({ 
   wells, 
-  loading, 
-  error, 
+  loading,
   onEditWell, 
   onDeleteWell 
 }: WellsTableProps) => {

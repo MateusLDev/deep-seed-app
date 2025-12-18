@@ -4,7 +4,6 @@ import { ProjectsService } from '@/api/projects';
 import { ReservoirService } from '@/api/reservoirs';
 import { WellTargetService } from '@/api/wells';
 import { toast } from 'sonner';
-import type { ProjectsResponse, ReservoirResponse, WellTargetResponse } from '@/types/api';
 import {
   Chart as ChartJS,
   CategoryScale,

@@ -1,73 +1,66 @@
-# React + TypeScript + Vite
+# 🏗️ DeepReserver
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Sistema de Gestão de Reservatórios** - Uma aplicação completa para gerenciamento de projetos, reservatórios e poços com dashboard interativo e visualizações em tempo real.
 
-Currently, two official plugins are available:
+## 📋 Sobre o Projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+DeepReserver é uma aplicação web moderna desenvolvida para gerenciar operações de reservatórios, oferecendo uma interface intuitiva para controle completo de projetos, reservatórios e poços associados. O sistema fornece dashboards com gráficos interativos e relatórios detalhados para tomada de decisão.
 
-## React Compiler
+## 🚀 Tecnologias Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Frontend
+- **React 18** - Biblioteca JavaScript para interfaces de usuário
+- **TypeScript** - Superset tipado do JavaScript
+- **Vite** - Build tool moderna e rápida
+- **Tailwind CSS v4** - Framework CSS utility-first
+- **React Router DOM** - Roteamento para React
 
-## Expanding the ESLint configuration
+### UI/UX
+- **shadcn/ui** - Biblioteca de componentes React reutilizáveis
+- **Lucide React** - Ícones SVG otimizados
+- **Sonner** - Sistema de notificações toast
+- **Chart.js + React Chart.js 2** - Gráficos interativos
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### HTTP & API
+- **Axios** - Cliente HTTP para consumo de APIs
+- **API RESTful** - Comunicação com backend
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚦 Como Executar
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Pré-requisitos
+- **Node.js** (versão 18+)
+- **npm** ou **yarn**
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Instalação
+
+1. **Clone o repositório**
+   ```bash
+   git clone <repository-url>
+   cd deep-seed-app
+   ```
+
+2. **Instale as dependências**
+   ```bash
+   npm install
+   ```
+
+3. **Execute o projeto**
+   ```bash
+   npm run dev
+   ```
+
+4. **Acesse no navegador**
+   ```
+   http://localhost:5173
+   ```
+
+### Scripts Disponíveis
+
+```bash
+npm run dev        # Executa em modo desenvolvimento
+npm run build      # Build para produção
+npm run preview    # Preview do build
+npm run lint       # Executa o linter
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+**DeepReserver** - Sistema de Gestão de Reservatórios 🏗️

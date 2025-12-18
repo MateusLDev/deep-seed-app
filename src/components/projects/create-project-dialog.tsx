@@ -55,7 +55,7 @@ export const CreateProjectDialog = ({
         setLoadingStrategies(true)
         const data = await CCUSStrategiesService.getAll()
         setStrategies(data)
-      } catch (err: any) {
+      } catch (err: unknown) {
         console.error('Erro ao carregar estratégias:', err)
       } finally {
         setLoadingStrategies(false)
@@ -104,7 +104,7 @@ export const CreateProjectDialog = ({
       onProjectCreated()
       onClose()
       
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(`Erro ao ${mode === 'create' ? 'criar' : 'atualizar'} projeto:`, err)
       toast.error(`Erro ao ${mode === 'create' ? 'criar' : 'atualizar'} projeto`)
     } finally {
