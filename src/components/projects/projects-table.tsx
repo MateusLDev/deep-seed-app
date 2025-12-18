@@ -11,7 +11,6 @@ import {
 import type { ProjectsResponse } from '@/types/api'
 import { Edit, Trash2 } from 'lucide-react'
 
-// Interface estendida para incluir o nome da estratégia
 interface ProjectWithStrategyName extends ProjectsResponse {
   strategyName?: string
 }
