@@ -6,7 +6,6 @@ import Reservoirs from './pages/reservoirs'
 import Wells from './pages/wells'
 
 function App() {
-
   return (
     <BrowserRouter>
       <Routes>
