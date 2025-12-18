@@ -108,7 +108,7 @@ export const CreateWellDialog = ({
         setTypeWells(typeWellsData)
         setTypeTubings(typeTubingsData)
         setTypeFunctions(typeFunctionsData)
-      } catch (err: any) {
+      } catch (err: unknown) {
         console.error('Erro ao buscar dados:', err)
         toast.error('Erro ao carregar dados')
       } finally {
@@ -192,7 +192,7 @@ export const CreateWellDialog = ({
       onWellCreated()
       onClose()
       
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(`Erro ao ${mode === 'create' ? 'criar' : 'atualizar'} poço:`, err)
       toast.error(`Erro ao ${mode === 'create' ? 'criar' : 'atualizar'} poço`)
     } finally {

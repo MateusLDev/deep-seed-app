@@ -62,14 +62,14 @@ export const ProjectsTable = ({
         </TableHeader>
 
         <TableBody>
-          {projects.map((project: any, index: number) => (
+          {projects.map((project: ProjectWithStrategyName, index: number) => (
             <TableRow key={project.id || index} className="border-b border-slate-200 hover:bg-slate-50">
               <TableCell className="px-6 py-4 font-medium text-slate-900">
                 {project.id || index + 1}
               </TableCell>
 
               <TableCell className="px-6 py-4 text-slate-900">
-                {project.name_project || project.name || 'Nome não disponível'}
+                {project.name_project || '--'}
               </TableCell>
 
               <TableCell className="px-6 py-4">
@@ -81,8 +81,8 @@ export const ProjectsTable = ({
               <TableCell className="px-6 py-4 text-slate-600">
                 {project.created_at 
                   ? new Date(project.created_at).toLocaleDateString('pt-BR')
-                  : project.createdAt
-                  ? new Date(project.createdAt).toLocaleDateString('pt-BR')
+                  : project.created_at
+                  ? new Date(project.created_at).toLocaleDateString('pt-BR')
                   : 'Data não disponível'
                 }
               </TableCell>

@@ -55,7 +55,7 @@ export const CreateReservoirDialog = ({
         setLoadingProjects(true)
         const data = await ProjectsService.getAll()
         setProjects(data)
-      } catch (err: any) {
+      } catch (err: unknown) {
         console.error('Erro ao buscar projetos:', err)
         toast.error('Erro ao carregar projetos')
       } finally {
@@ -105,7 +105,7 @@ export const CreateReservoirDialog = ({
       onReservoirCreated()
       onClose()
       
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(`Erro ao ${mode === 'create' ? 'criar' : 'atualizar'} reservatório:`, err)
       toast.error(`Erro ao ${mode === 'create' ? 'criar' : 'atualizar'} reservatório`)
     } finally {
