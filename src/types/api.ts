@@ -89,3 +89,30 @@ export interface UpdateWellData {
   target_z: number;
   tec: number;
 }
+
+export interface TypeWellResponse {
+  name: string;
+  description: string;
+  internal_code: number;
+  id: number;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface TypeTubingResponse {
+  name: string;
+  description: string;
+  internal_code: number;
+  id: number;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface TypeFunctionResponse {
+  name: string;
+  description: string;
+  internal_code: number;
+  id: number;
+  created_at: string;
+  updated_at: string;
+}
